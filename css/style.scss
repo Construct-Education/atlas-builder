@@ -1,0 +1,134 @@
+//COLORS
+$main-hover: #0e71eb;
+$darkest-grey: #616161;
+$dark-grey: #7e7e84;
+$mid-grey: #babacc;
+$light-grey: #EAEAEA;
+$white: #fff;
+
+body {
+  width: 300px;
+  height: 100vh;
+  margin: 0;
+  background: $mid-grey;
+  box-sizing: border-box;
+}
+.hidden {
+  display: none !important;
+}
+
+main.app-container {
+  height: 100%;
+  padding: 30px 30px 50px;
+  background: $white;
+  font-size: 16px;
+  position: relative;
+  font-family: "Roboto", Arial, sans-serif;
+
+  .homepage {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 100px);
+
+    .platform-btn {
+      text-align: center;
+      color: $dark-grey;
+
+      p {
+        margin: 15px;
+      }
+
+      .icon {
+        width: 100px;
+      }
+
+      &:hover {
+        color: $darkest-grey;
+        cursor: pointer;
+
+        .to-blue-onhover {
+          fill: $main-hover;
+        }
+        .to-white-on-hover {
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  .platform-screen {
+    .back-to-home-btn {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: $dark-grey;
+
+      i {
+        padding-right: 10px;
+        font-size: 30px;
+      }
+
+      &:hover {
+        color: $main-hover;
+      }
+    }
+
+    .component-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+      .component-btn {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin-top: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 0px 0px 0px 15px;
+        background: $light-grey;
+        color: $dark-grey;
+
+        &:hover {
+          color: $white;
+          background: $main-hover;
+          cursor: pointer;
+        }
+
+        i{
+            padding: 0 15px;
+            transform: translateX(15px);
+        }
+
+        * {
+          margin: 0;
+        }
+
+        &.btn-2{
+            padding:  15px 20px;
+            width: 90%;
+        }
+        &.btn-3{
+            padding: 12px 20px ;
+            margin-top: 5px;
+            width: 80%;
+        }
+
+      }
+    }
+  }
+
+  .footer-copy {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: $dark-grey;
+    a {
+      color: $dark-grey;
+      &:hover {
+        color: $darkest-grey;
+      }
+    }
+  }
+}
