@@ -17,18 +17,30 @@ body {
   display: none !important;
 }
 
-main.app-container {
+.dark{
+  color: $darkest-grey;
+}
+
+main#app-container {
   height: 100%;
   padding: 30px 30px 50px;
   background: $white;
   font-size: 16px;
   position: relative;
+  overflow: hidden;
   font-family: "Roboto", Arial, sans-serif;
 
-  .homepage {
+  #homepage {
+    position: absolute;
+    top: 30px;
+    left: 30px;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-columns: repeat(2, 100px);
+    transform: translateX(0);
+    opacity: 1;
+    transition: opacity 600ms ease-out, transform 450ms ease-in-out;
+
 
     .platform-btn {
       text-align: center;
@@ -54,9 +66,31 @@ main.app-container {
         }
       }
     }
+
+    &[aria-hidden="true"] {
+      transform: translateX(-1000%);
+     // display: none;
+      opacity: 0;
+      transition: opacity 400ms ease-out, transform 300ms ease-in-out;
+    }
+
   }
 
   .platform-screen {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    opacity: 1;
+    transition: opacity 200ms ease-out, transform 150ms ease-in-out;
+
+
+    &[aria-hidden="true"] {
+      transform: translateX(1000%);
+     // display: none;
+      opacity: 0;
+      transition: opacity 400ms ease-out, transform 300ms ease-in-out;
+    }
+
     .back-to-home-btn {
       font-size: 14px;
       display: flex;
@@ -74,7 +108,7 @@ main.app-container {
       }
     }
 
-    .component-container {
+    .component-container, .subquestions-container {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -94,12 +128,20 @@ main.app-container {
           color: $white;
           background: $main-hover;
           cursor: pointer;
+
+          p {
+            i{
+              color: $white;
+            }
+          }
         }
 
-        i{
+
+        >i{
             padding: 0 15px;
             transform: translateX(15px);
         }
+
 
         * {
           margin: 0;
@@ -112,7 +154,7 @@ main.app-container {
         &.btn-3{
             padding: 12px 20px ;
             margin-top: 5px;
-            width: 80%;
+            width: 100%;
         }
 
       }

@@ -11,50 +11,96 @@ body {
   display: none !important;
 }
 
-main.app-container {
+.dark {
+  color: #616161;
+}
+
+main#app-container {
   height: 100%;
   padding: 30px 30px 50px;
   background: #fff;
   font-size: 16px;
   position: relative;
+  overflow: hidden;
   font-family: "Roboto", Arial, sans-serif;
 }
 
-main.app-container .homepage {
+main#app-container #homepage {
+  position: absolute;
+  top: 30px;
+  left: 30px;
   display: -ms-grid;
   display: grid;
   grid-gap: 20px;
-  -ms-grid-columns: (100px)[auto-fill];
-      grid-template-columns: repeat(auto-fill, 100px);
+  -ms-grid-columns: (100px)[2];
+      grid-template-columns: repeat(2, 100px);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  -webkit-transition: opacity 600ms ease-out, -webkit-transform 450ms ease-in-out;
+  transition: opacity 600ms ease-out, -webkit-transform 450ms ease-in-out;
+  transition: opacity 600ms ease-out, transform 450ms ease-in-out;
+  transition: opacity 600ms ease-out, transform 450ms ease-in-out, -webkit-transform 450ms ease-in-out;
 }
 
-main.app-container .homepage .platform-btn {
+main#app-container #homepage .platform-btn {
   text-align: center;
   color: #7e7e84;
 }
 
-main.app-container .homepage .platform-btn p {
+main#app-container #homepage .platform-btn p {
   margin: 15px;
 }
 
-main.app-container .homepage .platform-btn .icon {
+main#app-container #homepage .platform-btn .icon {
   width: 100px;
 }
 
-main.app-container .homepage .platform-btn:hover {
+main#app-container #homepage .platform-btn:hover {
   color: #616161;
   cursor: pointer;
 }
 
-main.app-container .homepage .platform-btn:hover .to-blue-onhover {
+main#app-container #homepage .platform-btn:hover .to-blue-onhover {
   fill: #0e71eb;
 }
 
-main.app-container .homepage .platform-btn:hover .to-white-on-hover {
+main#app-container #homepage .platform-btn:hover .to-white-on-hover {
   fill: #fff;
 }
 
-main.app-container .platform-screen .back-to-home-btn {
+main#app-container #homepage[aria-hidden="true"] {
+  -webkit-transform: translateX(-1000%);
+          transform: translateX(-1000%);
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-out, -webkit-transform 300ms ease-in-out;
+  transition: opacity 400ms ease-out, -webkit-transform 300ms ease-in-out;
+  transition: opacity 400ms ease-out, transform 300ms ease-in-out;
+  transition: opacity 400ms ease-out, transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+}
+
+main#app-container .platform-screen {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 200ms ease-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 200ms ease-out, transform 150ms ease-in-out;
+  transition: opacity 200ms ease-out, transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+main#app-container .platform-screen[aria-hidden="true"] {
+  -webkit-transform: translateX(1000%);
+          transform: translateX(1000%);
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-out, -webkit-transform 300ms ease-in-out;
+  transition: opacity 400ms ease-out, -webkit-transform 300ms ease-in-out;
+  transition: opacity 400ms ease-out, transform 300ms ease-in-out;
+  transition: opacity 400ms ease-out, transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+}
+
+main#app-container .platform-screen .back-to-home-btn {
   font-size: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -66,16 +112,16 @@ main.app-container .platform-screen .back-to-home-btn {
   color: #7e7e84;
 }
 
-main.app-container .platform-screen .back-to-home-btn i {
+main#app-container .platform-screen .back-to-home-btn i {
   padding-right: 10px;
   font-size: 30px;
 }
 
-main.app-container .platform-screen .back-to-home-btn:hover {
+main#app-container .platform-screen .back-to-home-btn:hover {
   color: #0e71eb;
 }
 
-main.app-container .platform-screen .component-container {
+main#app-container .platform-screen .component-container, main#app-container .platform-screen .subquestions-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,7 +134,7 @@ main.app-container .platform-screen .component-container {
           align-items: flex-end;
 }
 
-main.app-container .platform-screen .component-container .component-btn {
+main#app-container .platform-screen .component-container .component-btn, main#app-container .platform-screen .subquestions-container .component-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,45 +151,49 @@ main.app-container .platform-screen .component-container .component-btn {
   color: #7e7e84;
 }
 
-main.app-container .platform-screen .component-container .component-btn:hover {
+main#app-container .platform-screen .component-container .component-btn:hover, main#app-container .platform-screen .subquestions-container .component-btn:hover {
   color: #fff;
   background: #0e71eb;
   cursor: pointer;
 }
 
-main.app-container .platform-screen .component-container .component-btn i {
+main#app-container .platform-screen .component-container .component-btn:hover p i, main#app-container .platform-screen .subquestions-container .component-btn:hover p i {
+  color: #fff;
+}
+
+main#app-container .platform-screen .component-container .component-btn > i, main#app-container .platform-screen .subquestions-container .component-btn > i {
   padding: 0 15px;
   -webkit-transform: translateX(15px);
           transform: translateX(15px);
 }
 
-main.app-container .platform-screen .component-container .component-btn * {
+main#app-container .platform-screen .component-container .component-btn *, main#app-container .platform-screen .subquestions-container .component-btn * {
   margin: 0;
 }
 
-main.app-container .platform-screen .component-container .component-btn.btn-2 {
+main#app-container .platform-screen .component-container .component-btn.btn-2, main#app-container .platform-screen .subquestions-container .component-btn.btn-2 {
   padding: 15px 20px;
   width: 90%;
 }
 
-main.app-container .platform-screen .component-container .component-btn.btn-3 {
+main#app-container .platform-screen .component-container .component-btn.btn-3, main#app-container .platform-screen .subquestions-container .component-btn.btn-3 {
   padding: 12px 20px;
   margin-top: 5px;
-  width: 80%;
+  width: 100%;
 }
 
-main.app-container .footer-copy {
+main#app-container .footer-copy {
   position: absolute;
   bottom: 20px;
   font-size: 14px;
   color: #7e7e84;
 }
 
-main.app-container .footer-copy a {
+main#app-container .footer-copy a {
   color: #7e7e84;
 }
 
-main.app-container .footer-copy a:hover {
+main#app-container .footer-copy a:hover {
   color: #616161;
 }
 /*# sourceMappingURL=style.css.map */
